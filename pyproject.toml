@@ -1,0 +1,17 @@
+[project]
+name = "rainsurge-ai"
+version = "0.1.0"
+description = "Hyper-local dynamic pricing and demand forecasting engine (self-hosted ML)"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pandas", "h3>=4"]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["api/tests", "ml/tests", "pricing/tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

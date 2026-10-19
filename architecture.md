@@ -53,7 +53,7 @@ For each H3 cell `c` and horizon `t`:
 
 | Layer | Technology |
 |-------|-----------|
-| Language | Python 3.11+ |
+| Language | Python 3.10+ (3.11+ preferred) |
 | API | FastAPI, Uvicorn, Pydantic v2 |
 | Spatial indexing | Uber H3 (`h3` Python library) |
 | Cache / state | Redis 7 |
@@ -175,7 +175,7 @@ python -m ml.training.train --config ml/training/config.yaml
 pytest
 ```
 
-> Note: application code is not implemented yet (see `progress.md`); the commands above describe the target workflow.
+> Note: only `pricing/` and `ml/simulation.py` are implemented so far (see `progress.md`); the API and worker commands above describe the target workflow. Currently working: `pytest`, `python scripts/simulate_data.py`, `python scripts/demo_pricing.py` (run with `PYTHONPATH=.`).
 
 ## 9. Non-Functional Targets
 
