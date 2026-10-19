@@ -11,12 +11,15 @@ _Last updated: 2026-10-19_
 - [x] Wrote `architecture.md` (data flow, tech stack, folder structure, CI/CD, run instructions).
 - [x] Wrote `progress.md` and `handoff.md`.
 - [x] Added `README.md` and `.gitignore`.
-- [x] Initialized a standalone Git repository inside the project folder.
+- [x] Initialized a standalone Git repository inside the project folder and pushed to public GitHub.
+- [x] Pricing engine (`pricing/`): equilibrium solver, spatial smoothing, rate limiting, caps, 16 unit tests.
+- [x] Synthetic data simulator (`ml/simulation.py`, `scripts/simulate_data.py`): rain-driven demand/supply per H3 cell.
+- [x] Demo script (`scripts/demo_pricing.py`), `pyproject.toml`, `requirements*.txt`, ruff config.
 
 ## What we plan to do next
 
 ### Phase 1 — Foundations
-- [ ] Add `pyproject.toml`, `requirements.txt`, `requirements-dev.txt`, `.env.example`.
+- [ ] Add `.env.example` (`pyproject.toml` and requirements files are done).
 - [ ] Add `infra/docker/docker-compose.yml` (Redis, Kafka, Zookeeper, API, worker).
 - [ ] Add GitHub Actions workflow `.github/workflows/ci.yml` (ruff, mypy, pytest).
 - [ ] Add pre-commit configuration.
@@ -34,9 +37,9 @@ _Last updated: 2026-10-19_
 - [ ] MLflow tracking and model versioning.
 
 ### Phase 4 — Pricing Engine
-- [ ] Implement equilibrium solver with elasticity, bounds, and smoothing.
-- [ ] Spatial smoothing across neighboring cells.
-- [ ] Unit tests and property-based tests for monotonicity and bounds.
+- [x] Equilibrium solver, spatial smoothing, unit tests (done).
+- [ ] Calibrate default elasticity and supply model against real data.
+- [ ] Property-based tests (hypothesis) for monotonicity and bounds.
 
 ### Phase 5 — Streaming & Workers
 - [ ] Kafka topics and producers/consumers.
@@ -53,3 +56,12 @@ _Last updated: 2026-10-19_
 | Date | Agent | Session usage (% of weekly) | Notes |
 |------|-------|-----------------------------|-------|
 | 2026-10-19 | Claude | — | Project initialization |
+
+## Security TODO (main machine)
+
+Deferred until the project moves to the main, hardened machine:
+
+- [ ] API authentication and authorization.
+- [ ] Rate limiting and HTTPS termination.
+- [ ] Secret management (no secrets are stored in this repository).
+- [ ] Dependency and container vulnerability scanning in CI.
